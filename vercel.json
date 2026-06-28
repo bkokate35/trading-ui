@@ -1,0 +1,7 @@
+{
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "SOLANA_RPC_URL": "https://api.mainnet-beta.solana.com"
+  }
+}
