@@ -86,12 +86,12 @@ export const tokens: Token[] = [
   }
 ];
 
-export const holders: [string, string, string][] = [
-  ["7t9...CHAD", "3.82%", "+$41,920"],
-  ["9xA...moon", "2.14%", "+$18,204"],
-  ["SoL...maxi", "1.88%", "+$15,840"],
-  ["Jup...ape", "1.41%", "+$9,331"],
-  ["Bnk...run", "0.92%", "+$4,508"]
+export const holders: [string, string, string, string][] = [
+  ["7t9...CHAD", "3.82%", "+$41,920", "7t9QwP8xHcE4Vn2kR6mYbS1aCHAD"],
+  ["9xA...moon", "2.14%", "+$18,204", "9xAhL5pTgQ3nV8sK2fM7moon"],
+  ["SoL...maxi", "1.88%", "+$15,840", "SoL4vQz9bN2mE6xA8kP1maxi"],
+  ["Jup...ape", "1.41%", "+$9,331", "Jup7hN3yL9sC2xQ5vB8ape"],
+  ["Bnk...run", "0.92%", "+$4,508", "Bnk5pV2rM8qX1cN7tK4run"]
 ];
 
 export const trades: [string, string, string, string][] = [

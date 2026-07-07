@@ -50,36 +50,36 @@ export function SwapPanel({ token }: SwapPanelProps) {
   }, [routePlan]);
 
   return (
-    <div className="rounded border border-white/10 bg-white/[0.05] p-5">
-      <div className="grid grid-cols-2 rounded bg-black/30 p-1">
-        <button className="h-10 rounded bg-volt text-sm font-black text-ink">Buy</button>
-        <button className="h-10 rounded text-sm font-black text-white/60">Sell</button>
+    <div className="rounded border border-white/12 bg-white p-5 text-black">
+      <div className="grid grid-cols-2 rounded bg-black p-1">
+        <button className="h-10 rounded bg-volt text-sm font-black text-black">buy</button>
+        <button className="h-10 rounded text-sm font-black text-white/60">sell</button>
       </div>
 
-      <label className="mt-5 block text-xs font-black uppercase text-white/45">You pay</label>
-      <div className="mt-2 flex h-14 items-center justify-between rounded border border-white/10 bg-black/24 px-3">
+      <label className="mt-5 block text-xs font-black uppercase text-black/45">you pay</label>
+      <div className="mt-2 flex h-14 items-center justify-between rounded border border-black/10 bg-black px-3 text-white">
         <input
           className="w-full bg-transparent text-xl font-black outline-none"
           inputMode="decimal"
           onChange={(event) => setAmount(event.target.value)}
           value={amount}
         />
-        <button className="inline-flex items-center gap-1 rounded bg-white/10 px-2 py-1 text-sm font-black">
+        <button className="inline-flex items-center gap-1 rounded bg-white px-2 py-1 text-sm font-black text-black">
           SOL
           <ChevronDown className="h-4 w-4" aria-hidden />
         </button>
       </div>
 
-      <label className="mt-4 block text-xs font-black uppercase text-white/45">You receive</label>
-      <div className="mt-2 flex h-14 items-center justify-between rounded border border-white/10 bg-black/24 px-3">
+      <label className="mt-4 block text-xs font-black uppercase text-black/45">you receive</label>
+      <div className="mt-2 flex h-14 items-center justify-between rounded border border-black/10 bg-black px-3 text-white">
         <input className="w-full bg-transparent text-xl font-black outline-none" readOnly value={outAmount} />
-        <button className="inline-flex items-center gap-1 rounded bg-white/10 px-2 py-1 text-sm font-black">
+        <button className="inline-flex items-center gap-1 rounded bg-white px-2 py-1 text-sm font-black text-black">
           {token.symbol}
           <ChevronDown className="h-4 w-4" aria-hidden />
         </button>
       </div>
 
-      <p className="mt-3 text-xs font-bold text-white/45">{routeLabel}</p>
+      <p className="mt-3 text-xs font-black uppercase text-black/45">{routeLabel}</p>
       <ConnectWalletButton />
     </div>
   );

@@ -10,6 +10,15 @@ export async function GET(request: Request) {
   const token = getToken(symbol);
   const lamports = Math.max(1, Math.round(amount * 1_000_000_000));
 
+  if (token.mint === solMint) {
+    return NextResponse.json({
+      ok: true,
+      outAmount: String(lamports),
+      routePlan: 1,
+      priceImpactPct: "0"
+    });
+  }
+
   try {
     const url = new URL("https://lite-api.jup.ag/swap/v1/quote");
     url.searchParams.set("inputMint", solMint);

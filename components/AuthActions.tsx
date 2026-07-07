@@ -22,14 +22,14 @@ function PreviewAuthActions() {
   return (
     <div className="flex flex-col gap-3 sm:flex-row">
       <button
-        className="inline-flex h-12 items-center justify-center gap-2 rounded border border-white/14 bg-white text-sm font-black text-ink transition hover:bg-volt"
+        className="inline-flex h-12 items-center justify-center gap-2 rounded bg-white px-5 text-sm font-black text-black transition hover:bg-volt"
         title="Set NEXT_PUBLIC_PRIVY_APP_ID to enable Privy OAuth"
       >
         <Apple className="h-4 w-4" aria-hidden />
         Sign in with Apple
       </button>
       <button
-        className="inline-flex h-12 items-center justify-center gap-2 rounded border border-white/14 bg-white/10 px-5 text-sm font-black text-white transition hover:border-volt hover:bg-volt/12"
+        className="inline-flex h-12 items-center justify-center gap-2 rounded border border-white/18 bg-black px-5 text-sm font-black text-white transition hover:border-white hover:bg-white/10"
         title="Set NEXT_PUBLIC_PRIVY_APP_ID to enable Privy OAuth"
       >
         <Chrome className="h-4 w-4" aria-hidden />

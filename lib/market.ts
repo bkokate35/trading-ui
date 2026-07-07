@@ -8,8 +8,8 @@ type JupiterPrice = {
   change24h?: number;
 };
 
-export type HolderRow = [wallet: string, share: string, value: string];
-export type TradeRow = [side: string, amount: string, value: string, time: string];
+export type HolderRow = [wallet: string, share: string, value: string, fullWallet?: string];
+export type TradeRow = [side: string, amount: string, value: string, time: string, fullAmount?: string];
 
 const jupiterPriceUrl = "https://lite-api.jup.ag/price/v3";
 const fallbackRpcUrl = "https://api.mainnet-beta.solana.com";
@@ -120,7 +120,12 @@ export async function getTokenHolders(symbol: string): Promise<HolderRow[]> {
   const rows = accounts?.value?.slice(0, 5).map((account) => {
     const amount = account.uiAmount ?? Number(account.amount);
     const share = total ? `${((amount / total) * 100).toFixed(2)}%` : "--";
-    return [shortAddress(account.address), share, `${new Intl.NumberFormat("en-US", { notation: "compact" }).format(amount)} ${token.symbol}`] as HolderRow;
+    return [
+      shortAddress(account.address),
+      share,
+      `${new Intl.NumberFormat("en-US", { notation: "compact" }).format(amount)} ${token.symbol}`,
+      account.address
+    ] as HolderRow;
   });
 
   return rows?.length ? rows : fallbackHolders;
@@ -136,7 +141,13 @@ export async function getLiveTrades(symbol: string): Promise<TradeRow[]> {
   const rows = signatures?.filter((tx) => !tx.err).slice(0, 6).map((tx, index) => {
     const seconds = tx.blockTime ? Math.max(1, Math.round(Date.now() / 1000 - tx.blockTime)) : index * 8 + 3;
     const side = index % 3 === 1 ? "Sell" : "Buy";
-    return [side, `${shortAddress(tx.signature)}`, "on-chain", seconds < 60 ? `${seconds}s` : `${Math.round(seconds / 60)}m`] as TradeRow;
+    return [
+      side,
+      shortAddress(tx.signature),
+      "on-chain",
+      seconds < 60 ? `${seconds}s` : `${Math.round(seconds / 60)}m`,
+      tx.signature
+    ] as TradeRow;
   });
 
   return rows?.length ? rows : fallbackTrades;

@@ -20,6 +20,7 @@ FOMO-style ChadWallet landing page plus a bonus Solana trading interface built w
 - Vercel config
 - Cloudflare Pages config
 - Supabase-backed runtime watchlist with local fallback
+- Full ChadWallet asset pack represented in the UI, including app-store screens, flow screens, logo variants, and video
 
 ## Tech Stack
 
@@ -102,10 +103,36 @@ The provided ChadWallet logo file is used from:
 app/dark.png
 ```
 
-Additional official brand files from the shared Drive folder can be dropped into:
+Official ChadWallet assets from `ChadWallet-Assets.zip` are extracted into:
 
 ```text
-public/brand
+public/chadwallet-assets
+public/cw
+```
+
+The flattened `public/cw` folder is used by the landing page, header logo, trading page mockups, screen rail, flow gallery, and video section.
+
+Flattened assets currently used:
+
+```text
+buy-sell.png
+chadwallet.mp4
+deposit.png
+discover.png
+flow-kol.png
+flow-launch.png
+flow-memecoin.png
+flow-portfolio.png
+flow-relaunch.png
+kol.png
+launch.png
+logo-dark.png
+logo-light.png
+portfolio.png
+search.png
+splash.png
+token.png
+x.png
 ```
 
 ## Deployment

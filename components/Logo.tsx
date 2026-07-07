@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import darkLogo from "@/app/dark.png";
 
 export function Logo() {
   return (
@@ -11,7 +10,7 @@ export function Logo() {
           className="h-full w-full object-cover"
           height={48}
           priority
-          src={darkLogo}
+          src="/cw/logo-dark.png"
           width={48}
         />
       </span>
